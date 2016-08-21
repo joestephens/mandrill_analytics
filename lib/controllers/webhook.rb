@@ -9,4 +9,9 @@ class MandrillAnalytics < Sinatra::Base
 
     webhook.save!
   end
+
+  get '/' do
+    @data = Webhook.get_data
+    erb :index
+  end
 end
