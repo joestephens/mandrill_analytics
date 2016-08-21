@@ -14,7 +14,7 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
 
   def app
-    Sinatra::Application
+    MandrillAnalytics
   end
 
   config.expect_with :rspec do |expectations|
