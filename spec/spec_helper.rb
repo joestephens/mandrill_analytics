@@ -17,6 +17,14 @@ RSpec.configure do |config|
     MandrillAnalytics
   end
 
+  config.before(:suite) do
+    NoBrainer.sync_schema
+  end
+
+  config.before(:each) do
+    NoBrainer.purge!
+  end
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

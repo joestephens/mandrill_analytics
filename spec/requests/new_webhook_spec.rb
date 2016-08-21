@@ -1,5 +1,4 @@
 RSpec.describe MandrillAnalytics, type: :request do
-  include Rack::Test::Methods
   context 'receiving webhooks from Mandrill' do
 
     it 'adds a new document to the database' do
