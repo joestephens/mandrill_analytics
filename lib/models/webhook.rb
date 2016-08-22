@@ -41,8 +41,6 @@ class Webhook
     open_rates = {}
 
     email_types.each do |k, v|
-      p k
-      p v
       open_rates[k] = self.where(event: "open", email_type: v).length
     end
 

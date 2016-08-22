@@ -136,6 +136,56 @@ RSpec.describe 'Analytics page' do
   end
 
   it 'should have click rate per email type' do
+    4.times do
+      Webhook.create(
+        address: "barney@lostmy.name",
+        email_type: "Shipment",
+        event: "click",
+        timestamp: Time.at(1432820696)
+      )
+    end
 
+    6.times do
+      Webhook.create(
+        address: "barney@lostmy.name",
+        email_type: "UserConfirmation",
+        event: "click",
+        timestamp: Time.at(1432820696)
+      )
+    end
+
+    2.times do
+      Webhook.create(
+        address: "barney@lostmy.name",
+        email_type: "Order",
+        event: "click",
+        timestamp: Time.at(1432820696)
+      )
+    end
+
+    3.times do
+      Webhook.create(
+        address: "barney@lostmy.name",
+        email_type: "GetABookDiscount",
+        event: "click",
+        timestamp: Time.at(1432820696)
+      )
+    end
+
+    Webhook.create(
+      address: "barney@lostmy.name",
+      email_type: "ReferAFriend",
+      event: "click",
+      timestamp: Time.at(1432820696)
+    )
+
+    visit '/'
+
+    expect(page).to have_content("Click rate per email type")
+    expect(page).to have_content("Shipment: 4")
+    expect(page).to have_content("UserConfirmation: 6")
+    expect(page).to have_content("Order: 2")
+    expect(page).to have_content("GetABookDiscount: 3")
+    expect(page).to have_content("ReferAFriend: 1")
   end
 end
