@@ -9,8 +9,8 @@ class Webhook
   def self.get_data
     return {
       total_number_of_emails: total_number_of_emails,
-      total_number_of_emails_opened: total_number_of_emails_opened,
-      total_number_of_clicks: total_number_of_clicks,
+      total_number_of_emails_opened: total_number_of("open"),
+      total_number_of_clicks: total_number_of("click"),
       open_rate_per_email_type: open_rate_per_email_type,
       click_rate_per_email_type: click_rate_per_email_type
     }
@@ -22,33 +22,19 @@ class Webhook
     self.count
   end
 
-  def self.total_number_of_emails_opened
-    self.where(event: "open").length
-  end
-
-  def self.total_number_of_clicks
-    self.where(event: "click").length
+  def self.total_number_of(event)
+    self.where(event: event).length
   end
 
   def self.open_rate_per_email_type
-    email_types = {
-      shipment: "Shipment",
-      user_confirmation: "UserConfirmation",
-      order: "Order",
-      get_a_book_discount: "GetABookDiscount",
-      refer_a_friend: "ReferAFriend"
-    }
-
-    open_rates = {}
-
-    email_types.each do |k, v|
-      open_rates[k] = self.where(event: "open", email_type: v).length
-    end
-
-    open_rates
+    event_rate_per_email_type("open")
   end
 
   def self.click_rate_per_email_type
+    event_rate_per_email_type("click")
+  end
+
+  def self.event_rate_per_email_type(event)
     email_types = {
       shipment: "Shipment",
       user_confirmation: "UserConfirmation",
@@ -57,13 +43,13 @@ class Webhook
       refer_a_friend: "ReferAFriend"
     }
 
-    click_rates = {}
+    event_rates = {}
 
     email_types.each do |k, v|
-      click_rates[k] = self.where(event: "click", email_type: v).length
+      event_rates[k] = self.where(event: event, email_type: v).length
     end
 
-    click_rates
+    event_rates
   end
 
 end
