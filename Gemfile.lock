@@ -76,6 +76,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   nobrainer
+  rack
   rack-test
   rspec
   sinatra

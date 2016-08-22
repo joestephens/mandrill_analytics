@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-group :production, :test do
+group :development, :test do
+  gem 'rack'
   gem 'sinatra'
   gem 'sinatra-partial'
   gem 'nobrainer'

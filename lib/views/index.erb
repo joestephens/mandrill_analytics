@@ -32,70 +32,26 @@
       <div id="row">
         <h2>Open rate per email type</h2>
       </div>
-      <div id="row">
-        Shipment:
-        <span class="number">
-          <%= @data[:open_rate_per_email_type][:shipment] %>
-        </span>
-      </div>
-      <div id="row">
-        UserConfirmation:
-        <span class="number">
-          <%= @data[:open_rate_per_email_type][:user_confirmation] %>
-        </span>
-      </div>
-      <div id="row">
-        Order:
-        <span class="number">
-          <%= @data[:open_rate_per_email_type][:order] %>
-        </span>
-      </div>
-      <div id="row">
-        GetABookDiscount:
-        <span class="number">
-          <%= @data[:open_rate_per_email_type][:get_a_book_discount] %>
-        </span>
-      </div>
-      <div id="row">
-        ReferAFriend:
-        <span class="number">
-          <%= @data[:open_rate_per_email_type][:refer_a_friend] %>
-        </span>
-      </div>
+
+      <% Webhook::EMAIL_TYPES.each do |k, v| %>
+        <div id="row">
+          <%= v %>:
+          <span class="number">
+            <%= @data[:open_rate_per_email_type][k] %>
+          </span>
+        </div>
+      <% end %>
 
       <div id="row">
         <h2>Click rate per email type</h2>
       </div>
-      <div id="row">
-        Shipment:
-        <span class="number">
-          <%= @data[:click_rate_per_email_type][:shipment] %>
-        </span>
-      </div>
-      <div id="row">
-        UserConfirmation:
-        <span class="number">
-          <%= @data[:click_rate_per_email_type][:user_confirmation] %>
-        </span>
-      </div>
-      <div id="row">
-        Order:
-        <span class="number">
-          <%= @data[:click_rate_per_email_type][:order] %>
-        </span>
-      </div>
-      <div id="row">
-        GetABookDiscount:
-        <span class="number">
-          <%= @data[:click_rate_per_email_type][:get_a_book_discount] %>
-        </span>
-      </div>
-      <div id="row">
-        ReferAFriend:
-        <span class="number">
-          <%= @data[:click_rate_per_email_type][:refer_a_friend] %>
-        </span>
-      </div>
-    </div>
+      <% Webhook::EMAIL_TYPES.each do |k, v| %>
+        <div id="row">
+          <%= v %>:
+          <span class="number">
+            <%= @data[:click_rate_per_email_type][k] %>
+          </span>
+        </div>
+      <% end %>
   </body>
 </html>

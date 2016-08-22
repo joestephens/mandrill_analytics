@@ -6,8 +6,16 @@ class Webhook
   field :event, type: String
   field :timestamp, type: Time
 
+  EMAIL_TYPES = {
+    shipment: "Shipment",
+    user_confirmation: "UserConfirmation",
+    order: "Order",
+    get_a_book_discount: "GetABookDiscount",
+    refer_a_friend: "ReferAFriend"
+  }
+
   def self.get_data
-    return {
+    {
       total_number_of_emails: total_number_of_emails,
       total_number_of_emails_opened: total_number_of("open"),
       total_number_of_clicks: total_number_of("click"),
@@ -35,17 +43,9 @@ class Webhook
   end
 
   def self.event_rate_per_email_type(event)
-    email_types = {
-      shipment: "Shipment",
-      user_confirmation: "UserConfirmation",
-      order: "Order",
-      get_a_book_discount: "GetABookDiscount",
-      refer_a_friend: "ReferAFriend"
-    }
-
     event_rates = {}
 
-    email_types.each do |k, v|
+    EMAIL_TYPES.each do |k, v|
       event_rates[k] = self.where(event: event, email_type: v).length
     end
 
