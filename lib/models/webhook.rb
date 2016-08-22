@@ -9,7 +9,8 @@ class Webhook
   def self.get_data
     return {
       total_number_of_emails: total_number_of_emails,
-      total_number_of_emails_opened: total_number_of_emails_opened
+      total_number_of_emails_opened: total_number_of_emails_opened,
+      total_number_of_clicks: total_number_of_clicks
     }
   end
 
@@ -21,6 +22,10 @@ class Webhook
 
   def self.total_number_of_emails_opened
     self.where(event: "open").length
+  end
+
+  def self.total_number_of_clicks
+    self.where(event: "click").length
   end
 
 end
