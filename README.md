@@ -33,7 +33,7 @@ I struggled initially with testing the JSON POST request. Firstly, the Rack::Tes
 
 After this, I was struggling with posting in JSON format - I've done it previously in Rails, but in Sinatra it seems to be a bit more fiddly. I later found a blog post that cleared this up.
 
-Upon running RSpec, there are some NoBrainer warning messages. These don't affect the running of the application, but I haven't quite worked out how to silence these yet.
+Upon running RSpec, there are some NoBrainer warning messages. These don't affect the running of the application, but I haven't quite worked out how to silence these yet. The RSpec tests also aren't as DRY as I would like in their current form. Given more time, I would have some form of data populater helper method that would populate a random amount of data and return counts etc. to allow the tests to be a bit more readable.
 
 ## Possible Features
 Features I would add - given additional time - would likely include: charts for displaying of the data in a more visual format; and also the option to see statistics based on date ranges (e.g. in the last week, month, year etc.).
