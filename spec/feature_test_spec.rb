@@ -125,6 +125,8 @@ RSpec.describe 'Analytics page' do
       timestamp: Time.at(1432820696)
     )
 
+    visit '/'
+
     expect(page).to have_content("Open rate per email type")
     expect(page).to have_content("Shipment: 2")
     expect(page).to have_content("UserConfirmation: 3")

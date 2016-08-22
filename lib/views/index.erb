@@ -3,3 +3,15 @@ Total number of emails sent: <%= @data[:total_number_of_emails] %>
 Total number of emails opened: <%= @data[:total_number_of_emails_opened] %>
 <br>
 Total number of clicks: <%= @data[:total_number_of_clicks] %>
+<br>
+<strong>Open rate per email type</strong>
+<br>
+Shipment: <%= @data[:open_rate_per_email_type][:shipment] %>
+<br>
+UserConfirmation: <%= @data[:open_rate_per_email_type][:user_confirmation] %>
+<br>
+Order: <%= @data[:open_rate_per_email_type][:order] %>
+<br>
+GetABookDiscount: <%= @data[:open_rate_per_email_type][:get_a_book_discount] %>
+<br>
+ReferAFriend: <%= @data[:open_rate_per_email_type][:refer_a_friend] %>
