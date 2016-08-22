@@ -14,6 +14,17 @@ class Webhook
     refer_a_friend: "ReferAFriend"
   }
 
+  def self.add(data)
+    params = JSON.parse(data)
+
+    create(
+      address: params["Address"],
+      email_type: params["EmailType"],
+      event: params["Event"],
+      timestamp: Time.at(params["Timestamp"])
+    )
+  end
+
   def self.get_data
     {
       total_number_of_emails: total_number_of_emails,

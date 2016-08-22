@@ -1,11 +1,6 @@
 class MandrillAnalytics < Sinatra::Base
   post '/create' do
-    params = JSON.parse(request.body.read)
-
-    webhook = Webhook.create(address: params["Address"],
-                   email_type: params["EmailType"],
-                   event: params["Event"],
-                   timestamp: Time.at(params["Timestamp"]))
+    Webhook.add(request.body.read)
   end
 
   get '/' do
