@@ -1,0 +1,32 @@
+body {
+  font-family: Helvetica Neue;
+}
+
+#container {
+  max-width: 414px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#row {
+  border-bottom: #999 dashed 1px;
+  padding: 8px;
+}
+
+#row h1, h2 {
+  margin: 0;
+}
+
+#row h1 {
+  font-size: 1.5em;
+}
+
+#row h2 {
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.number {
+  float: right;
+  font-weight: bolder;
+}

@@ -1,35 +1,101 @@
-<p>
-  Total number of emails sent: <%= @data[:total_number_of_emails] %>
-  <br>
-  Total number of emails opened: <%= @data[:total_number_of_emails_opened] %>
-  <br>
-  Total number of clicks: <%= @data[:total_number_of_clicks] %>
-</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mandrill Analytics</title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="row">
+        <h1>Mandrill Analytics</h1>
+      </div>
+      <div id="row">
+        Total number of emails sent:
+        <span class="number">
+          <%= @data[:total_number_of_emails] %>
+        </span>
+      </div>
+      <div id="row">
+        Total number of emails opened:
+        <span class="number">
+          <%= @data[:total_number_of_emails_opened] %>
+        </span>
+      </div>
+      <div id="row">
+        Total number of clicks:
+        <span class="number">
+          <%= @data[:total_number_of_clicks] %>
+        </span>
+      </div>
 
-<p>
-  <strong>Open rate per email type</strong>
-  <br>
-  Shipment: <%= @data[:open_rate_per_email_type][:shipment] %>
-  <br>
-  UserConfirmation: <%= @data[:open_rate_per_email_type][:user_confirmation] %>
-  <br>
-  Order: <%= @data[:open_rate_per_email_type][:order] %>
-  <br>
-  GetABookDiscount: <%= @data[:open_rate_per_email_type][:get_a_book_discount] %>
-  <br>
-  ReferAFriend: <%= @data[:open_rate_per_email_type][:refer_a_friend] %>
-</p>
+      <div id="row">
+        <h2>Open rate per email type</h2>
+      </div>
+      <div id="row">
+        Shipment:
+        <span class="number">
+          <%= @data[:open_rate_per_email_type][:shipment] %>
+        </span>
+      </div>
+      <div id="row">
+        UserConfirmation:
+        <span class="number">
+          <%= @data[:open_rate_per_email_type][:user_confirmation] %>
+        </span>
+      </div>
+      <div id="row">
+        Order:
+        <span class="number">
+          <%= @data[:open_rate_per_email_type][:order] %>
+        </span>
+      </div>
+      <div id="row">
+        GetABookDiscount:
+        <span class="number">
+          <%= @data[:open_rate_per_email_type][:get_a_book_discount] %>
+        </span>
+      </div>
+      <div id="row">
+        ReferAFriend:
+        <span class="number">
+          <%= @data[:open_rate_per_email_type][:refer_a_friend] %>
+        </span>
+      </div>
 
-<p>
-  <strong>Click rate per email type</strong>
-  <br>
-  Shipment: <%= @data[:click_rate_per_email_type][:shipment] %>
-  <br>
-  UserConfirmation: <%= @data[:click_rate_per_email_type][:user_confirmation] %>
-  <br>
-  Order: <%= @data[:click_rate_per_email_type][:order] %>
-  <br>
-  GetABookDiscount: <%= @data[:click_rate_per_email_type][:get_a_book_discount] %>
-  <br>
-  ReferAFriend: <%= @data[:click_rate_per_email_type][:refer_a_friend] %>
-</p>
+      <div id="row">
+        <h2>Click rate per email type</h2>
+      </div>
+      <div id="row">
+        Shipment:
+        <span class="number">
+          <%= @data[:click_rate_per_email_type][:shipment] %>
+        </span>
+      </div>
+      <div id="row">
+        UserConfirmation:
+        <span class="number">
+          <%= @data[:click_rate_per_email_type][:user_confirmation] %>
+        </span>
+      </div>
+      <div id="row">
+        Order:
+        <span class="number">
+          <%= @data[:click_rate_per_email_type][:order] %>
+        </span>
+      </div>
+      <div id="row">
+        GetABookDiscount:
+        <span class="number">
+          <%= @data[:click_rate_per_email_type][:get_a_book_discount] %>
+        </span>
+      </div>
+      <div id="row">
+        ReferAFriend:
+        <span class="number">
+          <%= @data[:click_rate_per_email_type][:refer_a_friend] %>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
