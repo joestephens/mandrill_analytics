@@ -22,4 +22,5 @@ class Webhook
   def self.total_number_of_emails_opened
     self.where(event: "open").length
   end
+
 end
